@@ -1,6 +1,7 @@
 import useFetch from '@/hooks/useFetch'
 import { getPosts } from '@/utils/queryFn'
 import Card from '@/common/card'
+import CardLayout from '@/common/cardlayout'
 
 export interface Post {
   id?: number
@@ -20,7 +21,9 @@ const Posts = () => {
   return (
     <>
       {posts.map((post) => (
-        <Card key={post.id} {...post} />
+        <CardLayout key={post.id}>
+          <Card {...post} />
+        </CardLayout>
       ))}
     </>
   )

@@ -1,5 +1,6 @@
 import useFetch from '@/hooks/useFetch'
 import { getUsers } from '@/utils/queryFn'
+import CardLayout from '@/common/cardlayout'
 
 export interface User {
   id?: number
@@ -20,11 +21,11 @@ const Users = () => {
   return (
     <>
       {users.map((user) => (
-        <div className='w-full border-2 p-3' key={user.id}>
+        <CardLayout key={user.id}>
           <h3 className='text-2xl'>{user.name}</h3>
           <p>{user.email}</p>
           <p>{user.phone}</p>
-        </div>
+        </CardLayout>
       ))}
     </>
   )
