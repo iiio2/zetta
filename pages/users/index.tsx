@@ -16,6 +16,8 @@ const Users = () => {
 
   if (data.isLoading) return <p>Loading...</p>
 
+  if (data.isError) return <p>Failed to fetch users</p>
+
   // @ts-expect-error ignore users property
   const users = data.data!.users as User[]
 

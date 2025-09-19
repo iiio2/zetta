@@ -10,6 +10,7 @@ const Post = () => {
   const data = useFetch('post', () => getPost(router.query.id as string))
 
   if (data.isLoading) return <p>loading...</p>
+  if (data.isError) return <p>Failed to fetch post</p>
 
   // @ts-expect-error ignore post property
   const post = data.data.post as Post

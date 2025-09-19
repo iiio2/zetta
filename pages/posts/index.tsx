@@ -16,6 +16,7 @@ const Posts = () => {
   const data = useFetch('posts', getPosts)
 
   if (data.isLoading) return <p>Loading...</p>
+  if (data.isError) return <p>Failed to fetch posts</p>
 
   // @ts-expect-error ignore posts property
   const posts = data.data!.posts as Post[]
