@@ -7,9 +7,11 @@ import CardLayout from '@/common/cardlayout'
 const Post = () => {
   const router = useRouter()
 
-  const data = useFetch('post', () => getPost(router.query.id as string))
+  const data = useFetch(['post', router.query.id as string], () =>
+    getPost(router.query.id as string)
+  )
 
-  if (data.isLoading) return <p>loading...</p>
+  if (data.isPending) return <p>loading...</p>
   if (data.isError) return <p>Failed to fetch post</p>
 
   // @ts-expect-error ignore post property

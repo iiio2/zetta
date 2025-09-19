@@ -13,9 +13,9 @@ export interface Post {
 }
 
 const Posts = () => {
-  const data = useFetch('posts', getPosts)
+  const data = useFetch(['posts'], getPosts)
 
-  if (data.isLoading) return <p>Loading...</p>
+  if (data.isPending) return <p>Loading...</p>
   if (data.isError) return <p>Failed to fetch posts</p>
 
   // @ts-expect-error ignore posts property

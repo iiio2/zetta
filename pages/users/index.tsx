@@ -12,9 +12,9 @@ export interface User {
 }
 
 const Users = () => {
-  const data = useFetch('users', getUsers)
+  const data = useFetch(['users'], getUsers)
 
-  if (data.isLoading) return <p>Loading...</p>
+  if (data.isPending) return <p>Loading...</p>
 
   if (data.isError) return <p>Failed to fetch users</p>
 
