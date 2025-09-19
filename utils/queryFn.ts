@@ -1,11 +1,16 @@
 export async function getPosts() {
   const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/posts')
-  const posts = await response.json()
-  return posts
+  return await response.json()
 }
 
 export async function getUsers() {
   const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/users')
-  const users = await response.json()
-  return users
+  return await response.json()
+}
+
+export async function getPost(id: string) {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_BASE_URL + '/posts/' + id
+  )
+  return await response.json()
 }

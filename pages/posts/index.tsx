@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import useFetch from '@/hooks/useFetch'
 import { getPosts } from '@/utils/queryFn'
 import Card from '@/common/card'
@@ -21,9 +22,11 @@ const Posts = () => {
   return (
     <>
       {posts.map((post) => (
-        <CardLayout key={post.id}>
-          <Card {...post} />
-        </CardLayout>
+        <Link href={`/posts/${post.id}`} key={post.id}>
+          <CardLayout>
+            <Card {...post} />
+          </CardLayout>
+        </Link>
       ))}
     </>
   )
