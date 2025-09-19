@@ -3,6 +3,7 @@ import useFetch from '@/hooks/useFetch'
 import { getPosts } from '@/utils/queryFn'
 import Card from '@/common/card'
 import CardLayout from '@/common/cardlayout'
+import GestureAnimation from '@/common/gestureAnimation'
 
 export interface Post {
   id?: number
@@ -23,9 +24,11 @@ const Posts = () => {
     <>
       {posts.map((post) => (
         <Link href={`/posts/${post.id}`} key={post.id}>
-          <CardLayout>
-            <Card {...post} />
-          </CardLayout>
+          <GestureAnimation>
+            <CardLayout>
+              <Card {...post} />
+            </CardLayout>
+          </GestureAnimation>
         </Link>
       ))}
     </>
