@@ -24,8 +24,8 @@ const Users = () => {
   return (
     <>
       {users.map((user) => (
-        <GestureAnimation>
-          <CardLayout key={user.id}>
+        <GestureAnimation key={user.id}>
+          <CardLayout>
             <h3 className='text-2xl'>{user.name}</h3>
             <p>{user.email}</p>
             <p>{user.phone}</p>
